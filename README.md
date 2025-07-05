@@ -1,6 +1,14 @@
 # JordanOS
 A simple OS written in C that is named after the most powerful person that I know.
 
+## Prerequisites
+If on Windows these dependencies must be installed in WSL.
+- GCC cross compiler
+- NASM
+- grub-file
+- grub-mkrescue
+- xorriso
+
 ## Building
 1. Clone the repository by opening a terminal and running:
 ```
