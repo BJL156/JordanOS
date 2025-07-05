@@ -19,11 +19,11 @@ git clone https://github.com/BJL156/JordanOS
 cd JordanOS
 ```
 3. Build the project.
-- On Linux run:
+- On Linux:
 ```
 make
 ```
-- On Windows run:
+- On Windows:
 ```
 wslmake
 ```
