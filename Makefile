@@ -13,8 +13,8 @@ LDFLAGS = -T linker.ld -nostdlib -lgcc
 KERNEL_BIN = $(BUILD_DIR)/JordanOS.bin
 ISO_IMAGE = $(BUILD_DIR)/JordanOS.iso
 
-C_SOURCES   = $(wildcard $(SRC_DIR)/*.c)
-ASM_SOURCES = $(wildcard $(SRC_DIR)/*.asm)
+C_SOURCES   = $(shell find $(SRC_DIR) -name '*.c')
+ASM_SOURCES = $(shell find $(SRC_DIR) -name '*.asm')
 
 C_OBJECTS   = $(patsubst $(SRC_DIR)/%.c, $(BUILD_DIR)/%.o, $(C_SOURCES))
 ASM_OBJECTS = $(patsubst $(SRC_DIR)/%.asm, $(BUILD_DIR)/%.o, $(ASM_SOURCES))
@@ -23,11 +23,11 @@ OBJECTS     = $(C_OBJECTS) $(ASM_OBJECTS)
 all: $(ISO_IMAGE)
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
-	mkdir -p $(BUILD_DIR)
+	mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.asm
-	mkdir -p $(BUILD_DIR)
+	mkdir -p $(dir $@)
 	$(NASM) -felf32 $< -o $@
 
 $(KERNEL_BIN): $(OBJECTS) linker.ld
