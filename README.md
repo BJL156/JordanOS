@@ -28,11 +28,16 @@ make
 wslmake
 ```
 4. Running the ISO in an emulator.
-- If QEMU is installed, the repository provides `qemu.bat`, so run:
+- If QEMU is installed, the repository provides `qemu.bat` or `qemu.sh`.
+- On Linux:
 ```
-qemu build/JordanOS.iso
+bash qemu.sh
 ```
-- For another emulator, point to `JordanOS.iso` in `build/`.
+- On Windows:
+```
+qemu
+```
+- For another emulator, point to `build/JordanOS.iso`.
 
 ## Notes
 - The Makefile was designed for Linux.
