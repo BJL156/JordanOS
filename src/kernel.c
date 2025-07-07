@@ -1,24 +1,15 @@
 #include "drivers/vga.h"
-
-#include "utils/utils.h"
+#include "cpu/gdt.h"
+#include "cpu/idt.h"
 
 void kernel_main() {
-  Vga vga;
-  vga_init(&vga);
+  gdt_install();
+  idt_install();
 
-  for (int i = 0; i < 50; i++) {
-    char buf[32];
-    itoa(i, buf, 2);
+  vga_init();
+  vga_put_string("JordanOS\n");
 
-    vga_put_string(&vga, buf);
-    vga_put_char(&vga, '\n');
+  while (1) {
+    __asm__ volatile ("hlt");
   }
-
-  vga_set_color(&vga, 0x4F);
-
-  vga_put_string(&vga, "Welcome to JordanOS.\nIf you found a copy of this, you're a true Jordan fan.\n");
-
-  vga_set_color(&vga, 0x0F);
-
-  vga_put_string(&vga, "Testing.\n");
 }

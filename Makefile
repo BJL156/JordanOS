@@ -7,7 +7,7 @@ LD = i686-elf-gcc
 NASM = nasm
 GRUB_FILE = grub-file
 
-CFLAGS = -ffreestanding -O2 -Wall -Wextra -std=gnu99
+CFLAGS = -ffreestanding -O2 -Wall -Wextra -std=gnu99 -m32
 LDFLAGS = -T linker.ld -nostdlib -lgcc
 
 KERNEL_BIN = $(BUILD_DIR)/JordanOS.bin
