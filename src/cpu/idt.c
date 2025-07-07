@@ -40,5 +40,8 @@ void idt_install() {
   extern void isr0();
   set_idt_entry(0, (uint32_t)isr0, 0x08, 0x8E);
 
+  extern void irq0();
+  set_idt_entry(32, (uint32_t)irq0, 0x08, 0x8E);
+
   idt_flush((uint32_t)&idtp);
 }
