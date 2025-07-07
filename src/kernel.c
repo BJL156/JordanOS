@@ -1,11 +1,17 @@
 #include "drivers/vga.h"
 
+#include "utils/utils.h"
+
 void kernel_main() {
   Vga vga;
   vga_init(&vga);
 
   for (int i = 0; i < 50; i++) {
-    vga_put_string(&vga, "Wow. This is a line alright.\n");
+    char buf[32];
+    itoa(i, buf, 2);
+
+    vga_put_string(&vga, buf);
+    vga_put_char(&vga, '\n');
   }
 
   vga_set_color(&vga, 0x4F);
