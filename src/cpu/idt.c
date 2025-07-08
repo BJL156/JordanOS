@@ -34,7 +34,7 @@ void idt_install() {
   idtp.base = (uint32_t)&idt;
 
   for (int i = 0; i < IDT_ENTRIES; i++) {
-      set_idt_entry(i, 0, 0, 0);
+    set_idt_entry(i, 0, 0, 0);
   }
 
   extern void isr0();
@@ -42,6 +42,8 @@ void idt_install() {
 
   extern void irq0();
   set_idt_entry(32, (uint32_t)irq0, 0x08, 0x8E);
+  extern void irq1();
+  set_idt_entry(33, (uint32_t)irq1, 0x08, 0x8E);
 
   idt_flush((uint32_t)&idtp);
 }

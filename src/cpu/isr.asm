@@ -2,12 +2,12 @@
 
 global isr0
 
+extern isr0_handler
+
 isr0:
   cli
   pusha
-
-  mov dword [0xB8000], 0x4F004F00
-
+  call isr0_handler
   popa
   sti
   iretd 

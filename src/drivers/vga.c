@@ -61,6 +61,14 @@ static bool vga_handle_escape_char(char c) {
     vga.col = 0;
 
     return true;
+  case '\b':
+    if (vga.col > 0) {
+      vga.col--;
+      vga_put_char(' ');
+      vga.col--;
+    }
+
+    return true;
   default:
     return false;
   }
@@ -100,4 +108,22 @@ void vga_put_string(const char *str) {
   for (size_t i = 0; str[i] != '\0'; i++) {
     vga_put_char(str[i]);
   }
+}
+
+uint8_t vga_get_row() {
+  return vga.row;
+}
+
+uint8_t vga_get_col() {
+  return vga.col;
+}
+
+void vga_set_row(uint8_t row) {
+  vga.row = row;
+  vga_update_cursor();
+}
+
+void vga_set_col(uint8_t col) {
+  vga.col = col;
+  vga_update_cursor();
 }
