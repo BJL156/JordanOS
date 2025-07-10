@@ -2,6 +2,7 @@
 #define KEYBOARD_H
 
 #include "io.h"
+#include "vga.h"
 
 #include <stdint.h>
 #include <stddef.h>
@@ -9,5 +10,6 @@
 
 void keyboard_init();
 char keyboard_read_char();
+size_t keyboard_read_line(char *buf, size_t max_len);
 
 #endif

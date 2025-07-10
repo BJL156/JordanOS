@@ -4,12 +4,15 @@
 #include "cpu/gdt.h"
 #include "cpu/idt.h"
 #include "cpu/pic.h"
+#include "cpu/interrupts.h"
+
+#define LINE_BUFFER_SIZE 128
 
 void isr0_handler() {
   vga_put_string("Division by zero.\n");
 
   while (1) {
-    __asm__ volatile ("sti");
+    halt();
   }
 }
 
@@ -24,13 +27,17 @@ void kernel_main() {
   pic_remap();
   vga_init();
   keyboard_init();
-
-  __asm__ volatile ("sti");
+  enable_interrupts();
 
   vga_put_string("Welcome to JordanOS!\n");
 
+  char line[LINE_BUFFER_SIZE];
+
   while (1) {
-    char c = keyboard_read_char();
-    vga_put_char(c);
+    vga_put_string("> ");
+    keyboard_read_line(line, LINE_BUFFER_SIZE);
+
+    vga_put_string("You typed: ");
+    vga_put_string(line);
   }
 }
