@@ -61,6 +61,6 @@ qemu
 - For Windows, all prerequisites are required to be installed on WSL. Then can be ran with `wslmake.bat`.
 - It's possible to pass arguments to `wslmake.bat` just like how it's done with `make`. For example, `make clean` can be ran like `wslmake clean`.
 
-# Credits
+## Credits
 - [OSDev Wiki](https://wiki.osdev.org/Expanded_Main_Page)
 - [OSDever by Brandon Friesen](https://www.osdever.net/bkerndev/index.php)
