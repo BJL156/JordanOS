@@ -1,6 +1,23 @@
 # JordanOS
-A simple OS written in C that is named after the most powerful person that I know.
+A simple OS written in C made in order to understand operating system development.
 
+## About
+JordanOS is an operating system that compiles into an ISO which can be ran with an emulator or burned into a USB in order to view it on real hardware. It was built on the x86 architecture and uses x86 assembly and C for low level hardware access. The main challenge was creating the building process since there's a lot of things to consider such as assembly files, C files, and creating the setup needed for GRUB to work on the system. In the future this OS will be having most of the basic features that will make this a "real" OS. These future features can be founded within the "Features" section.
+
+# Features
+- [x] Linux support and Window support (in the form of WSL).
+- [x] GRUB bootloader
+- [x] VGA driver
+- [x] Rewrite GRUB's GDT.
+- [x] Write an IDT.
+- [x] IRQ and ISR support.
+- [x] Keyboard driver
+- [ ] Basic shell with:
+  - [ ] `help` command.
+  - [ ] `clear` command.
+  - [ ] `uptime` command.
+- [ ] Basic memory management functions.
+ 
 ## Prerequisites
 If on Windows these dependencies must be installed in WSL.
 - GCC cross compiler
@@ -41,5 +58,9 @@ qemu
 
 ## Notes
 - The Makefile was designed for Linux.
-- For Windows, all prerequisites are required to be installed on WSL. Then can be ran with the `wslmake.bat` file.
+- For Windows, all prerequisites are required to be installed on WSL. Then can be ran with `wslmake.bat`.
 - It's possible to pass arguments to `wslmake.bat` just like how it's done with `make`. For example, `make clean` can be ran like `wslmake clean`.
+
+## Credits
+- [OSDev Wiki](https://wiki.osdev.org/Expanded_Main_Page)
+- [OSDever by Brandon Friesen](https://www.osdever.net/bkerndev/index.php)
