@@ -13,8 +13,8 @@ JordanOS is an operating system that compiles into an ISO which can be ran with 
 - [x] IRQ and ISR support.
 - [x] Keyboard driver
 - [ ] Basic shell with:
-  - [ ] `help` command.
-  - [ ] `clear` command.
+  - [x] `help` command.
+  - [x] `clear` command.
   - [ ] `uptime` command.
 - [ ] Basic memory management functions.
  
