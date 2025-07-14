@@ -110,6 +110,20 @@ void vga_put_string(const char *str) {
   }
 }
 
+void vga_clear() {
+  for (size_t row = 0; row < VGA_HEIGHT; row++) {
+    for (size_t col = 0; col < VGA_WIDTH; col++) {
+      size_t index = row * VGA_WIDTH + col;
+
+      uint16_t blank_entry = (0x0F << 8) | ' ';
+      vga.buffer[index] = blank_entry;
+    }
+  }
+
+  vga.row = 0;
+  vga.col = 0;
+}
+
 uint8_t vga_get_row() {
   return vga.row;
 }

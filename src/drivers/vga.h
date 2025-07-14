@@ -11,6 +11,7 @@ void vga_init();
 void vga_set_color(uint8_t color);
 void vga_put_char(char c);
 void vga_put_string(const char *str);
+void vga_clear();
 uint8_t vga_get_row();
 uint8_t vga_get_col();
 void vga_set_row(uint8_t row);
