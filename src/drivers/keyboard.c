@@ -40,11 +40,11 @@ void keyboard_init() {
   outb(0x21, mask);
 }
 
-char keyboard_read_char() {
-  while (buffer_head == buffer_tail) {
-    asm __volatile ("hlt");
-  }
+static bool keyboard_has_char() {
+  return buffer_head != buffer_tail;
+}
 
+char keyboard_read_char() {
   char c = buffer[buffer_tail];
   buffer_tail = (buffer_tail + 1) % KEYBOARD_BUFFER_SIZE;
   return c;
@@ -53,6 +53,11 @@ char keyboard_read_char() {
 size_t keyboard_read_line(char *buf, size_t max_len) {
   size_t len = 0;
   while (true) {
+    if (!keyboard_has_char()) {
+      __asm__ volatile ("hlt");
+      continue;
+    }
+
     char c = keyboard_read_char();
 
     if (c == '\n') {

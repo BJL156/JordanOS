@@ -19,6 +19,49 @@ void shell() {
       vga_put_string("It's an operating system named after the most powerful person that I know.\n");
       vga_put_string("The operating system was written in x86 assembly and C.\n");
       vga_put_string("The source code is fully available at https://github.com/bjl156/jordanos.\n");
+    } else if (jos_strcmp(line, "uptime") == 0) {
+      uint32_t total_seconds = ticks / 18;
+      uint32_t hours = total_seconds / 3600;
+      uint32_t minutes = (total_seconds / 60) % 60;
+      uint32_t seconds = total_seconds % 60;
+
+      char buffer[64];
+      char temp[12];
+
+      const char *prefix = "Uptime: ";
+
+      size_t index = 0;
+      for (; prefix[index] != '\0'; index++) {
+        buffer[index] = prefix[index];
+      }
+
+      itoa(hours, temp, 10);
+      for (size_t i = 0; temp[i] != '\0'; i++) {
+        buffer[index++] = temp[i];
+      }
+      buffer[index++] = ':';
+
+      if (minutes < 10) {
+        buffer[index++] = '0';
+      }
+      itoa(minutes, temp, 10);
+      for (size_t i = 0; temp[i] != '\0'; i++) {
+        buffer[index++] = temp[i];
+      }
+      buffer[index++] = ':';
+
+      if (seconds < 10) {
+        buffer[index++] = '0';
+      }
+      itoa(seconds, temp, 10);
+      for (size_t i = 0; temp[i] != '\0'; i++) {
+        buffer[index++] = temp[i];
+      }
+
+      buffer[index++] = '\n';
+      buffer[index++] = '\0';
+
+      vga_put_string(buffer);
     } else {
       vga_put_string("Unknown command: ");
       vga_put_string(line);

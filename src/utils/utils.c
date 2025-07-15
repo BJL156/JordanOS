@@ -2,27 +2,28 @@
 
 size_t itoa(int value, char *buffer, int base) {
   char temp[32];
-
   char *p_temp = temp;
-  int i = 0;
   unsigned int v;
-
   bool negative = (base == 10 && value < 0);
 
   if (negative) {
-    v = -value;
+    v = (unsigned int)(-value);
   } else {
     v = (unsigned int)value;
   }
 
-  while (v || p_temp == temp) {
-    i = v % base;
-    v /= base;
+  if (v == 0) {
+    *p_temp++ = '0';
+  } else {
+    while (v != 0) {
+      int digit = v % base;
+      v /= base;
 
-    if (i < 10) {
-      *p_temp++ = i + '0';
-    } else {
-      *p_temp++ = i + 'a' - 10;
+      if (digit < 10) {
+        *p_temp++ = digit + '0';
+      } else {
+        *p_temp++ = digit + 'a' - 10;
+      }
     }
   }
 
