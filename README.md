@@ -15,7 +15,7 @@ JordanOS is an operating system that compiles into an ISO which can be ran with 
 - [ ] Basic shell with:
   - [x] `help` command.
   - [x] `clear` command.
-  - [ ] `uptime` command.
+  - [x] `uptime` command.
 - [ ] Basic memory management functions.
  
 ## Prerequisites
