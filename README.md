@@ -18,6 +18,7 @@ JordanOS is an operating system that compiles into an ISO which can be ran with 
   - [x] `uptime` command.
   - [ ] Other simple commands.
 - [ ] Basic memory management functions.
+- [ ] FAT12 file system.
  
 ## Prerequisites
 If on Windows these dependencies must be installed in WSL.
