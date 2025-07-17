@@ -6,12 +6,12 @@ JordanOS is an operating system that compiles into an ISO which can be ran with 
 
 # Features
 - [x] Linux support and Window support (in the form of WSL).
-- [x] GRUB bootloader
-- [x] VGA driver
+- [x] GRUB bootloader.
+- [x] VGA driver.
 - [x] Rewrite GRUB's GDT.
 - [x] Write an IDT.
 - [x] IRQ and ISR support.
-- [x] Keyboard driver
+- [x] Keyboard driver.
 - [ ] Basic shell with:
   - [x] `help` command.
   - [x] `clear` command.
