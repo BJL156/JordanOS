@@ -69,6 +69,21 @@ static bool vga_handle_escape_char(char c) {
     }
 
     return true;
+  case '\t':
+    const int tab_width = 8;
+    uint8_t next_tab_location = (vga.col / tab_width + 1) * tab_width;
+
+    if (next_tab_location >= VGA_WIDTH) {
+      vga.col = 0;
+      vga.row++;
+      if (vga.row >= VGA_HEIGHT) {
+        vga_scroll();
+      }
+    } else {
+      vga.col = next_tab_location;
+    }
+
+    return true;
   default:
     return false;
   }

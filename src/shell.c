@@ -11,9 +11,9 @@ void shell() {
       vga_clear();
     } else if (jos_strcmp(line, "help") == 0) {
       vga_put_string("Available commands:\n");
-      vga_put_string("       help - Displays this message.\n");
-      vga_put_string("       clear - Erases the entire screen and resets the cursor position.\n");
-      vga_put_string("       about - Displays information of JordanOS.\n");
+      vga_put_string("\thelp - Displays this message.\n");
+      vga_put_string("\tclear - Erases the entire screen and resets the cursor position.\n");
+      vga_put_string("\tabout - Displays information of JordanOS.\n");
     } else if (jos_strcmp(line, "about") == 0) {
       vga_put_string("Welcome to Jordan OS.\n");
       vga_put_string("It's an operating system named after the most powerful person that I know.\n");
