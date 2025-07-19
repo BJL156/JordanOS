@@ -23,11 +23,12 @@ JordanOS is an operating system that compiles into an ISO which can be ran with 
  
 ## Prerequisites
 If on Windows these dependencies must be installed in WSL.
-- GCC cross compiler
+- GCC i386 cross compiler
 - NASM
 - grub-file
 - grub-mkrescue
 - xorriso
+- binutils
 
 ## Building
 1. Clone the repository by opening a terminal and running:
