@@ -19,6 +19,8 @@ JordanOS is an operating system that compiles into an ISO which can be ran with 
   - [x] `uptime` command.
   - [ ] Other simple commands.
 - [ ] Basic memory management functions.
+  - [x] Paging.
+  - [ ] Memory allocation with jos_malloc.
 - [ ] FAT12 file system.
 - [ ] Audio support.
  
