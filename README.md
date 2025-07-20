@@ -25,13 +25,15 @@ JordanOS is an operating system that compiles into an ISO which can be ran with 
 - [ ] Audio support.
  
 ## Prerequisites
-If on Windows these dependencies must be installed in WSL.
-- GCC i386 cross compiler
-- NASM
-- grub-file
-- grub-mkrescue
-- xorriso
-- binutils
+JordanOS is only available natively on Linux; however, it's possible to build JordanOS in Windows using WSL 2. Therefore, if on Windows these dependencies must be installed in WSL 2.
+- GCC i386 cross compiler.
+- NASM.
+- grub.
+  - grub-file.
+  - grub-mkrescue.
+  - xorriso.
+- binutils.
+- qemu (Optional, but JordanOS provides `qemu.bat` and `qemu.sh` to use QEMU easily for emulation.)
 
 ## Building
 1. Clone the repository by opening a terminal and running:
