@@ -31,7 +31,7 @@ In the future, JordanOS will have more of the basic features listed below.
 <div align="center">
   <img width="1023" height="476" alt="2025-07-20-204402_hyprshot" src="https://github.com/user-attachments/assets/def010a2-03b0-40d0-81f5-2a75190a78c0" />
 </div>
-JordanOS shell running the `about`, `help`, and `uptime` commands.
+JordanOS shell running in QEMU with the `about`, `help`, and `uptime` commands.
 
 ## Prerequisites
 You can build JordanOS natively on Linux. On Windows, you need to use WSL 2.
