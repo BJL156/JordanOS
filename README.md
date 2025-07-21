@@ -1,31 +1,34 @@
 # JordanOS
-A simple OS written in C made in order to understand operating system development.
+A simple OS written in C made in order to learn operating system development.
 
 ## About
-JordanOS is an operating system that compiles into an ISO which can be ran with an emulator or burned into a USB in order to view it on real hardware. It was built on the x86 architecture and uses x86 assembly and C for low level hardware access. The main challenge was creating the building process since there's a lot of things to consider such as assembly files, C files, and creating the setup needed for GRUB to work on the system. In the future this OS will be having most of the basic features that will make this a "real" OS. These future features can be founded within the "Features" section.
+JordanOS is an operating system that builds into an ISO. It can be run within an emulator or put on a USB to be run on real hardware. It was made for the x86 architecture using both C and x86 assembly for direct hardware access.
+
+The hardest part was creating a build system that's simple for users to run because, it has to consider assembly files, C files, setting up GRUB correctly, and creating a way for Windows to interact with the Linux build system.
+
+In the future, JordanOS will have more of the basic features listed below.
 
 # Features
-- [x] Linux support and Window support (in the form of WSL).
-- [x] GRUB bootloader.
-- [x] VGA driver.
-- [x] Rewrite GRUB's GDT.
-- [x] Write an IDT.
-- [x] IRQ and ISR support.
-- [x] Keyboard driver.
-- [x] Basic PIT functionality.
-- [ ] Basic shell with:
+- [x] Runs on Linux and Window (via WSL).
+- [x] Uses the GRUB bootloader.
+- [x] VGA display driver.
+- [x] Custom Global Descriptor Table (GDT).
+- [x] Interrupt Descriptor Table (IDT).
+- [x] Interrupt Request (IRQ) and Interrupt Service Routine (ISR) support.
+- [x] Basic Keyboard driver.
+- [x] Basic Programmable Interval Timer (PIT).
+- [ ] Basic shell:
   - [x] `help` command.
   - [x] `clear` command.
   - [x] `uptime` command.
-  - [ ] Other simple commands.
-- [ ] Basic memory management functions.
+  - [ ] More commands coming.
+- [ ] Basic memory management.
   - [x] Paging.
-  - [ ] Memory allocation with jos_malloc.
-- [ ] FAT12 file system.
-- [ ] Audio support.
+  - [ ] Simple memory allocator `jos_malloc`.
+- [ ] FAT12 filesystem support.
  
 ## Prerequisites
-JordanOS is only available natively on Linux; however, it's possible to build JordanOS in Windows using WSL 2. Therefore, if on Windows these dependencies must be installed in WSL 2.
+You can build JordanOS natively on Linux. On Windows, you need to use WSL 2.
 - GCC i386 cross compiler.
 - NASM.
 - grub.
@@ -33,27 +36,27 @@ JordanOS is only available natively on Linux; however, it's possible to build Jo
   - grub-mkrescue.
   - xorriso.
 - binutils.
-- qemu (Optional, but JordanOS provides `qemu.bat` and `qemu.sh` to use QEMU easily for emulation.)
+- qemu (Optional, but JordanOS provides a simple way to use QEMU).
 
 ## Building
-1. Clone the repository by opening a terminal and running:
+1. Clone the repository:
 ```
 git clone https://github.com/BJL156/JordanOS
 ```
-2. Enter the project directory using:
+2. Enter the project directory:
 ```
 cd JordanOS
 ```
-3. Build the project.
+3. Build:
 - On Linux:
 ```
 make
 ```
-- On Windows:
+- On Windows (don't go into WSL):
 ```
 wslmake
 ```
-4. Running the ISO in an emulator.
+4. Run the ISO in an emulator:
 - If QEMU is installed, the repository provides `qemu.bat` or `qemu.sh`.
 - On Linux:
 ```
@@ -63,12 +66,12 @@ bash qemu.sh
 ```
 qemu
 ```
-- For another emulator, point to `build/JordanOS.iso`.
+- Or open `build/JordanOS.iso` with any emulator you like.
 
 ## Notes
-- The Makefile was designed for Linux.
-- For Windows, all prerequisites are required to be installed on WSL. Then can be ran with `wslmake.bat`.
-- It's possible to pass arguments to `wslmake.bat` just like how it's done with `make`. For example, `make clean` can be ran like `wslmake clean`.
+- The Makefile is made for Linux.
+- For Windows, all prerequisites are required to be installed on WSL. Then can be ran with `wslmake.bat`. This batch file will run the makefile in WSL, so there's no need to go into wsl before running the script.
+- You can pass arguments to `wslmake.bat` just like how it's done with `make`. For example, `wslmake clean`.
 
 ## Credits
 - [OSDev Wiki](https://wiki.osdev.org/Expanded_Main_Page)
