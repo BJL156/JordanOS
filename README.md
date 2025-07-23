@@ -62,6 +62,12 @@ make
 ```
 wslmake
 ```
+- If `wslmake.bat` has issues, go into WSL then run make, and finally exit.
+```
+wsl
+make
+exit
+```
 4. Run the ISO in an emulator:
 - If QEMU is installed, the repository provides `qemu.bat` or `qemu.sh`.
 - On Linux:
