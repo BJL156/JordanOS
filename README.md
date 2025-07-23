@@ -85,6 +85,7 @@ qemu
 - For Windows, all prerequisites are required to be installed on WSL. Then can be ran with `wslmake.bat`. This batch file will run the makefile in WSL, so there's no need to go into wsl before running the script.
 - You can pass arguments to `wslmake.bat` just like how it's done with `make`. For example, `wslmake clean`.
 
-## Credits
+## Sources Used
 - [OSDev Wiki](https://wiki.osdev.org/Expanded_Main_Page)
 - [OSDever by Brandon Friesen](https://www.osdever.net/bkerndev/index.php)
+- [GRUB Multiboot 1 Specification](https://www.gnu.org/software/grub/manual/multiboot/multiboot.html)
