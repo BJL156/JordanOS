@@ -13,7 +13,8 @@ void shell() {
       vga_put_string("Available commands:\n");
       vga_put_string("\thelp - Displays this message.\n");
       vga_put_string("\tclear - Erases the entire screen and resets the cursor position.\n");
-      vga_put_string("\tabout - Displays information of JordanOS.\n");
+      vga_put_string("\tabout - Displays information about JordanOS.\n");
+      vga_put_string("\tuptime - Displays how long the system has been running.\n");
     } else if (jos_strcmp(line, "about") == 0) {
       vga_put_string("Welcome to Jordan OS.\n");
       vga_put_string("It's an operating system named after the most powerful person that I know.\n");
