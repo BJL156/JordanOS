@@ -6,6 +6,7 @@
 #include "cpu/pic.h"
 #include "cpu/interrupts.h"
 
+#include "memory/pmm.h"
 #include "memory/paging.h"
 
 #include "multiboot.h"
@@ -89,6 +90,8 @@ void kernel_main(uint32_t magic, uint32_t multiboot_info_addr) {
   if (multiboot_info) {
     print_memory_map(multiboot_info);
   }
+
+  pmm_init(multiboot_info);
 
   gdt_install();
   idt_install();
