@@ -1,7 +1,7 @@
 #include "shell.h"
 #include "utils/print.h"
 
-void shell() {
+void shell(MultibootInfo *multiboot_info) {
   char line[LINE_BUFFER_SIZE];
 
   while (1) {
@@ -16,6 +16,7 @@ void shell() {
       println("\tclear - Erases the entire screen and resets the cursor position.");
       println("\tabout - Displays information about JordanOS.");
       println("\tuptime - Displays how long the system has been running.");
+      println("\tmmap - Displays the memory map provided by GRUB.");
     } else if (jos_strcmp(line, "about") == 0) {
       println("Welcome to Jordan OS.");
       print("\tIt's an operating system named after the most powerful person that I know. ");
@@ -64,6 +65,8 @@ void shell() {
       buffer[index++] = '\0';
 
       vga_put_string(buffer);
+    } else if (jos_strcmp(line, "mmap") == 0) {
+      print_memory_map(multiboot_info);
     } else {
       print("Unknown command: ");
       println(line);

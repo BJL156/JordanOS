@@ -42,12 +42,6 @@ void pmm_init(MultibootInfo *multiboot_info) {
     size_t page = addr / PAGE_SIZE;
     bitmap[page / 8] |= (1 << (page % 8));
   }
-
-  vga_put_string("PMM initialized. ");
-  char buf[20];
-  itoa(total_pages, buf, 10);
-  vga_put_string(buf);
-  vga_put_string(" pages available.\n");
 }
 
 void *pmm_alloc_page() {

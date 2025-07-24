@@ -1,6 +1,8 @@
 #ifndef MULTIBOOT_H
 #define MULTIBOOT_H
 
+#include "utils/print.h"
+
 #include <stdint.h>
 
 #define MULTIBOOT_HEADER_MAGIC 0x2BADB002
@@ -84,5 +86,7 @@ typedef struct __attribute__((packed)) {
   uint64_t len;
   uint32_t type;
 } MultibootMmapEntry;
+
+MultibootInfo *load_multiboot_info(uint32_t magic, uint32_t multiboot_info_addr);
 
 #endif
