@@ -2,7 +2,8 @@
 #define KEYBOARD_H
 
 #include "io.h"
-#include "vga.h"
+
+#include "../utils/print.h"
 
 #include <stdint.h>
 #include <stddef.h>

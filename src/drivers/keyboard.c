@@ -61,19 +61,19 @@ size_t keyboard_read_line(char *buf, size_t max_len) {
     char c = keyboard_read_char();
 
     if (c == '\n') {
-      vga_put_char(c);
+      putchar(c);
       break;
     } else if (c == '\b') {
       if (len > 0) {
         len--;
 
-        vga_put_char('\b');
-        vga_put_char(' ');
-        vga_put_char('\b');
+        putchar('\b');
+        putchar(' ');
+        putchar('\b');
       }
     } else if (len < max_len - 1) {
       buf[len++] = c;
-      vga_put_char(c);
+      putchar(c);
     }
   }
 

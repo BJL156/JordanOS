@@ -1,25 +1,26 @@
 #include "shell.h"
+#include "utils/print.h"
 
 void shell() {
   char line[LINE_BUFFER_SIZE];
 
   while (1) {
-    vga_put_string("> ");
+    print("> ");
     keyboard_read_line(line, LINE_BUFFER_SIZE);
 
     if (jos_strcmp(line, "clear") == 0) {
       vga_clear();
     } else if (jos_strcmp(line, "help") == 0) {
-      vga_put_string("Available commands:\n");
-      vga_put_string("\thelp - Displays this message.\n");
-      vga_put_string("\tclear - Erases the entire screen and resets the cursor position.\n");
-      vga_put_string("\tabout - Displays information about JordanOS.\n");
-      vga_put_string("\tuptime - Displays how long the system has been running.\n");
+      println("Available commands:");
+      println("\thelp - Displays this message.");
+      println("\tclear - Erases the entire screen and resets the cursor position.");
+      println("\tabout - Displays information about JordanOS.");
+      println("\tuptime - Displays how long the system has been running.");
     } else if (jos_strcmp(line, "about") == 0) {
-      vga_put_string("Welcome to Jordan OS.\n");
-      vga_put_string("It's an operating system named after the most powerful person that I know.\n");
-      vga_put_string("The operating system was written in x86 assembly and C.\n");
-      vga_put_string("The source code is fully available at https://github.com/bjl156/jordanos.\n");
+      println("Welcome to Jordan OS.");
+      print("\tIt's an operating system named after the most powerful person that I know. ");
+      print("The operating system was written in x86 assembly and C. ");
+      println("The source code is fully available at https://github.com/BJL156/JordanOS.");
     } else if (jos_strcmp(line, "uptime") == 0) {
       uint32_t total_seconds = ticks / 18;
       uint32_t hours = total_seconds / 3600;
@@ -64,9 +65,8 @@ void shell() {
 
       vga_put_string(buffer);
     } else {
-      vga_put_string("Unknown command: ");
-      vga_put_string(line);
-      vga_put_char('\n');
+      print("Unknown command: ");
+      println(line);
     }
   }
 }
