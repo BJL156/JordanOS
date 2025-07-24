@@ -24,8 +24,10 @@ In the future, JordanOS will have more of the basic features listed below.
   - [x] `help` command.
   - [x] `clear` command.
   - [x] `uptime` command.
-  - [ ] Memory shell functions.
-  - [ ] More commands coming.
+  - [x] `mmap` command.
+  - [ ] More commands coming:
+    - [ ] Memory commands.
+    - [ ] general commands.
 - [ ] Basic memory management.
   - [x] Load GRUB memory map.
   - [x] Paging.
@@ -37,7 +39,9 @@ In the future, JordanOS will have more of the basic features listed below.
 - [x] Basic bitmap Physical Memory Mananger (PMM).
 - [x] Paging.
 - [ ] Simple memory allocator `jos_malloc`.
-- [ ] Memory shell functions.
+- [ ] Memory commands.
+  - [x] `mmap` command.
+  - [ ] More commands.
 
 ## Screenshot
 <div align="center">
