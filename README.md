@@ -12,6 +12,7 @@ In the future, JordanOS will have more of the basic features listed below.
 - [x] Runs on Linux and Window (via WSL).
 - [x] Uses the GRUB bootloader.
 - [x] Loads GRUB Multiboot 1 information.
+- [x] Basic bitmap Physical Memory Mananger (PMM).
 - [x] VGA display driver.
 - [x] Custom Global Descriptor Table (GDT).
 - [x] Interrupt Descriptor Table (IDT).
@@ -22,6 +23,7 @@ In the future, JordanOS will have more of the basic features listed below.
   - [x] `help` command.
   - [x] `clear` command.
   - [x] `uptime` command.
+  - [ ] Memory shell functions.
   - [ ] More commands coming.
 - [ ] Basic memory management.
   - [x] Load GRUB memory map.
@@ -31,6 +33,7 @@ In the future, JordanOS will have more of the basic features listed below.
 
 # Before Next Release (v0.2.0)
 - [x] Loads GRUB Multiboot 1 information.
+- [x] Basic bitmap Physical Memory Mananger (PMM).
 - [x] Paging.
 - [ ] Simple memory allocator `jos_malloc`.
 - [ ] Memory shell functions.
