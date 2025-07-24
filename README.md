@@ -95,6 +95,7 @@ qemu
 ## Notes
 - The Makefile is made for Linux.
 - For Windows, all prerequisites are required to be installed on WSL. Then can be ran with `wslmake.bat`. This batch file will run the makefile in WSL, so there's no need to go into wsl before running the script.
+- Due to how WSL works, `wslmake.bat` may not work. Building is stil possible, but instead you have just run make instead of WSL.
 - You can pass arguments to `wslmake.bat` just like how it's done with `make`. For example, `wslmake clean`.
 
 ## Sources Used
