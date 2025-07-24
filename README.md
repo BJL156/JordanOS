@@ -14,6 +14,7 @@ In the future, JordanOS will have more of the basic features listed below.
 - [x] Loads GRUB Multiboot 1 information.
 - [x] Basic bitmap Physical Memory Mananger (PMM).
 - [x] VGA display driver.
+- [x] Basic Printing functions.
 - [x] Custom Global Descriptor Table (GDT).
 - [x] Interrupt Descriptor Table (IDT).
 - [x] Interrupt Request (IRQ) and Interrupt Service Routine (ISR) support.
