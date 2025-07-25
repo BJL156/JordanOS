@@ -25,6 +25,7 @@ In the future, JordanOS will have more of the basic features listed below.
   - [x] `clear` command.
   - [x] `uptime` command.
   - [x] `mmap` command.
+  - [x] `pmm` command.
   - [ ] More commands coming:
     - [ ] Memory commands.
     - [ ] general commands.
@@ -41,6 +42,7 @@ In the future, JordanOS will have more of the basic features listed below.
 - [ ] Simple memory allocator `jos_malloc`.
 - [ ] Memory commands.
   - [x] `mmap` command.
+  - [x] `pmm` command.
   - [ ] More commands.
 
 ## Screenshot
