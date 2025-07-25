@@ -17,7 +17,7 @@ void kernel_main(uint32_t magic, uint32_t multiboot_info_addr) {
 
   MultibootInfo *multiboot_info = load_multiboot_info(magic, multiboot_info_addr);
   if (!multiboot_info) {
-    println("Failed to load the Multiboot 1 information.");
+    println("Failed to load GRUB Multiboot 1 information.");
     return;
   }
 

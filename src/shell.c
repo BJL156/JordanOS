@@ -1,5 +1,4 @@
 #include "shell.h"
-#include "utils/print.h"
 
 void shell(MultibootInfo *multiboot_info) {
   char line[LINE_BUFFER_SIZE];
@@ -17,11 +16,12 @@ void shell(MultibootInfo *multiboot_info) {
       println("\tabout - Displays information about JordanOS.");
       println("\tuptime - Displays how long the system has been running.");
       println("\tmmap - Displays the memory map provided by GRUB.");
+      println("\tpmm - Displays properties of the physical memory manager.");
     } else if (jos_strcmp(line, "about") == 0) {
       println("Welcome to Jordan OS.");
       print("\tIt's an operating system named after the most powerful person that I know. ");
       print("The operating system was written in x86 assembly and C. ");
-      println("The source code is fully available at https://github.com/BJL156/JordanOS.");
+      println("The source code is fully available at https://GitHub.com/BJL156/JordanOS.");
     } else if (jos_strcmp(line, "uptime") == 0) {
       uint32_t total_seconds = ticks / 18;
       uint32_t hours = total_seconds / 3600;
@@ -67,6 +67,8 @@ void shell(MultibootInfo *multiboot_info) {
       vga_put_string(buffer);
     } else if (jos_strcmp(line, "mmap") == 0) {
       print_memory_map(multiboot_info);
+    } else if (jos_strcmp(line, "pmm") == 0) {
+      pmm_print_info();
     } else {
       print("Unknown command: ");
       println(line);

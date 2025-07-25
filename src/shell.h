@@ -6,6 +6,7 @@
 #include "cpu/interrupt_handlers.h"
 
 #include "memory/mmap.h"
+#include "memory/pmm.h"
 
 #include "utils/string_utils.h"
 #include "utils/utils.h"
