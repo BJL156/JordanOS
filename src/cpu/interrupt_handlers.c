@@ -1,7 +1,24 @@
 #include "interrupt_handlers.h"
 
 void isr0_handler() {
-  vga_put_string("Division by zero.\n");
+  println("\nDivision by zero.");
+
+  while (1) {
+    halt();
+  }
+}
+
+void isr14_handler(uint32_t error_code) {
+  println("\nPage fault.");
+
+  uint32_t fault_addr;
+  asm volatile("mov %%cr2, %0" : "=r"(fault_addr));
+
+  print("\tAddr: ");
+  print_hex(fault_addr);
+  print("\n\tError Code: ");
+  print_hex(error_code);
+  putchar('\n');
 
   while (1) {
     halt();
